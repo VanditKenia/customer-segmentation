@@ -18,16 +18,19 @@ st.title("Customer Segmentation Prediction")
 # Custom CSS to style the page with a gradient background and transparent input fields
 st.markdown("""
     <style>
-        /* Apply a gradient background */
+        /* Reset body and html margins and paddings */
+        html, body {
+            margin: 0;
+            padding: 0;
+            height: 100%;
+        }
+
+        /* Apply a gradient background to the body */
         body {
             background: linear-gradient(to right, #ff7e5f, #feb47b) !important; /* Gradient background */
             color: #333;
             font-family: 'Arial', sans-serif;
-            margin: 0;
-            padding: 0;
-        }
-        .main {
-            padding: 20px;
+            height: 100%;
         }
         h1 {
             color: #ffffff;
@@ -41,6 +44,8 @@ st.markdown("""
             font-size: 1.8rem;
             margin-bottom: 20px;
         }
+
+        /* Style the buttons */
         .stButton > button {
             background-color: #0066cc;
             color: white;
@@ -55,11 +60,11 @@ st.markdown("""
         .stButton > button:hover {
             background-color: #005bb5;
         }
-        
+
         /* Input Fields */
         .stTextInput input, .stNumberInput input, .stSelectbox select {
-            background-color: transparent; /* Remove the white box */
-            border: 2px solid #fff; /* Add white border */
+            background-color: transparent; /* Make input fields transparent */
+            border: 2px solid #fff; /* Add a white border */
             padding: 10px;
             border-radius: 8px;
             color: #333;
@@ -181,10 +186,6 @@ elif st.session_state.step == 4:
         label = "High Income, Low Buy"
 
     # Display the prediction result
-    st.write(f"### Predicted Number of Purchases: {predicted_purchases:.2f}")
+    st.write(f"### Predicted Purchases: {predicted_purchases:.2f}")
     st.write(f"### Customer Category: {label}")
-
-    # Option to reset and start over
-    if st.button("Start Over"):
-        st.session_state.step = 1
-        st.session_state.input_data = {}
+    st.write("Thank you for providing the information! We have classified this customer based on their spending behavior.")
