@@ -16,35 +16,72 @@ st.title("Customer Segmentation Prediction")
 st.markdown("""
     <style>
         body {
-            background-color: #F0F8FF;
+            background: linear-gradient(to right, #ff7e5f, #feb47b);
+            color: #333;
+            font-family: 'Arial', sans-serif;
         }
         .main {
             padding: 20px;
         }
         h1 {
-            color: #004d99;
+            color: #ffffff;
+            text-align: center;
+            font-size: 2.5rem;
+            font-weight: bold;
         }
         h2 {
-            color: #004d99;
+            color: #ffffff;
+            font-size: 1.8rem;
+            margin-bottom: 20px;
         }
         .stButton > button {
             background-color: #0066cc;
             color: white;
             font-size: 16px;
             border-radius: 8px;
+            padding: 10px 20px;
             transition: background-color 0.3s ease;
+            width: 100%;
         }
         .stButton > button:hover {
             background-color: #005bb5;
         }
+        .stTextInput, .stNumberInput, .stSelectbox, .stRadio {
+            background-color: #ffffff;
+            border-radius: 5px;
+            padding: 10px;
+            margin-bottom: 20px;
+            width: 100%;
+            font-size: 1rem;
+        }
+        .stTextInput input, .stNumberInput input, .stSelectbox select {
+            color: #333;
+            font-size: 1.1rem;
+            padding: 10px;
+            border: 2px solid #0066cc;
+            border-radius: 5px;
+        }
+        .stTextInput input:focus, .stNumberInput input:focus, .stSelectbox select:focus {
+            border-color: #feb47b;
+            outline: none;
+        }
+        .stTextInput label, .stNumberInput label, .stSelectbox label {
+            font-size: 1.2rem;
+            font-weight: bold;
+            color: #ffffff;
+        }
         .stRadio > label {
-            color: #004d99;
+            color: #ffffff;
+            font-size: 1.1rem;
         }
-        .stSelectbox, .stNumberInput, .stTextInput {
-            background-color: #e6f2ff;
+        .stSelectbox, .stNumberInput, .stTextInput, .stRadio {
+            background-color: #ffffff;
         }
-        .stSelectbox, .stNumberInput, .stTextInput, .stButton {
-            font-size: 16px;
+        .stSelectbox > div, .stRadio > div {
+            padding: 10px;
+        }
+        .stTextInput input, .stNumberInput input, .stSelectbox select, .stRadio > label {
+            color: #333;
         }
     </style>
 """, unsafe_allow_html=True)
@@ -71,7 +108,6 @@ if st.session_state.step == 1:
         st.session_state.input_data['Education'] = education
         st.session_state.input_data['Marital_Status'] = marital_status
         st.session_state.step = 2
-        st.experimental_rerun()
 
 # Step 2: Customer Tenure and Spending Features
 elif st.session_state.step == 2:
@@ -79,7 +115,6 @@ elif st.session_state.step == 2:
 
     # Input fields for customer tenure and spending
     customer_tenure = st.number_input("Customer Tenure (days)", min_value=0, step=1)
-    spending_threshold = 5000
     spending_features = {
         "MntWines": st.number_input("Amount Spent on Wine (USD)", min_value=0.0, step=100.0),
         "MntFruits": st.number_input("Amount Spent on Fruits (USD)", min_value=0.0, step=100.0),
@@ -91,7 +126,6 @@ elif st.session_state.step == 2:
         st.session_state.input_data['Customer_Tenure'] = customer_tenure
         st.session_state.input_data.update(spending_features)
         st.session_state.step = 3
-        st.experimental_rerun()
 
 # Step 3: Additional Spending Features (Fish, Sweets, Gold)
 elif st.session_state.step == 3:
@@ -107,9 +141,8 @@ elif st.session_state.step == 3:
     if st.button("Next: Make Prediction"):
         st.session_state.input_data.update(spending_features)
         st.session_state.step = 4
-        st.experimental_rerun()
 
-# Step 4: Make Prediction and Display Results
+# Step 4: Make Prediction and Show Results
 elif st.session_state.step == 4:
     st.header("Step 4: Prediction Result")
 
@@ -146,4 +179,4 @@ elif st.session_state.step == 4:
     # Option to reset and start over
     if st.button("Start Over"):
         st.session_state.step = 1
-        st.experimental_rerun()
+        st.session_state.input_data = {}
