@@ -16,9 +16,11 @@ st.title("Customer Segmentation Prediction")
 st.markdown("""
     <style>
         body {
-            background: linear-gradient(to right, #ff7e5f, #feb47b);
+            background: linear-gradient(to right, #ff7e5f, #feb47b); /* Gradient background */
             color: #333;
             font-family: 'Arial', sans-serif;
+            margin: 0;
+            padding: 0;
         }
         .main {
             padding: 20px;
@@ -28,6 +30,7 @@ st.markdown("""
             text-align: center;
             font-size: 2.5rem;
             font-weight: bold;
+            padding-bottom: 20px;
         }
         h2 {
             color: #ffffff;
@@ -42,46 +45,47 @@ st.markdown("""
             padding: 10px 20px;
             transition: background-color 0.3s ease;
             width: 100%;
+            border: none;
+            cursor: pointer;
         }
         .stButton > button:hover {
             background-color: #005bb5;
         }
-        .stTextInput, .stNumberInput, .stSelectbox, .stRadio {
-            background-color: #ffffff;
-            border-radius: 5px;
-            padding: 10px;
-            margin-bottom: 20px;
-            width: 100%;
-            font-size: 1rem;
-        }
+        
+        /* Input Fields */
         .stTextInput input, .stNumberInput input, .stSelectbox select {
+            background-color: transparent; /* Remove the white box */
+            border: 2px solid #fff; /* Add white border */
+            padding: 10px;
+            border-radius: 8px;
             color: #333;
             font-size: 1.1rem;
-            padding: 10px;
-            border: 2px solid #0066cc;
-            border-radius: 5px;
+            width: 100%;
+            margin-bottom: 15px;
         }
+        
         .stTextInput input:focus, .stNumberInput input:focus, .stSelectbox select:focus {
-            border-color: #feb47b;
             outline: none;
+            border-color: #feb47b; /* Focus border color */
         }
+
+        /* Labels for input fields */
         .stTextInput label, .stNumberInput label, .stSelectbox label {
             font-size: 1.2rem;
             font-weight: bold;
             color: #ffffff;
         }
+
+        /* Styling for radio buttons */
         .stRadio > label {
             color: #ffffff;
             font-size: 1.1rem;
+            padding: 5px;
         }
+
+        /* Make sure all form elements are properly spaced */
         .stSelectbox, .stNumberInput, .stTextInput, .stRadio {
-            background-color: #ffffff;
-        }
-        .stSelectbox > div, .stRadio > div {
-            padding: 10px;
-        }
-        .stTextInput input, .stNumberInput input, .stSelectbox select, .stRadio > label {
-            color: #333;
+            margin-bottom: 20px;
         }
     </style>
 """, unsafe_allow_html=True)
