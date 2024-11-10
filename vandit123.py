@@ -12,7 +12,7 @@ training_columns = joblib.load('training_columns.pkl')
 # Set the title of the app
 st.title("Customer Segmentation Prediction")
 
-# Custom CSS to style the page
+# Custom CSS to style the page with the gradient background and remove the white box from input fields
 st.markdown("""
     <style>
         body {
