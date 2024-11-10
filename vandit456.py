@@ -18,8 +18,9 @@ st.title("Customer Segmentation Prediction")
 # Custom CSS to style the page with a gradient background and transparent input fields
 st.markdown("""
     <style>
+        /* Apply a gradient background */
         body {
-            background: linear-gradient(to right, #ff7e5f, #feb47b); /* Gradient background */
+            background: linear-gradient(to right, #ff7e5f, #feb47b) !important; /* Gradient background */
             color: #333;
             font-family: 'Arial', sans-serif;
             margin: 0;
