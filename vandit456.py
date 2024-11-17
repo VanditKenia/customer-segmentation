@@ -126,7 +126,7 @@ elif st.session_state.step == 2:
     st.header("Step 2: Customer Tenure & Spending Details")
 
     # Input fields for customer tenure and spending
-        customer_tenure = st.number_input("Customer Tenure (days)", min_value=0, step=1)
+    customer_tenure = st.number_input("Customer Tenure (days)", min_value=0, step=1)
     spending_features = {
         "MntWines": st.number_input("Amount Spent on Wine (USD)", min_value=0.0, step=100.0),
         "MntFruits": st.number_input("Amount Spent on Fruits (USD)", min_value=0.0, step=100.0),
