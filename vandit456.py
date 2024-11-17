@@ -15,7 +15,7 @@ except Exception as e:
 # Set up the title of the Streamlit app
 st.title("Customer Segmentation Prediction")
 
-# Custom CSS to style the page with a gradient background and transparent input fields
+# Custom CSS to style the page with a warm gradient background and transparent input fields
 st.markdown("""
     <style>
         /* Reset body and html margins and paddings */
@@ -25,10 +25,9 @@ st.markdown("""
             height: 100%;
         }
 
-        /* Apply a gradient background to the body */
+        /* Apply a warm gradient background to the body */
         body {
-            background: linear-gradient(to right, #ff7e5f, #feb47b) !important; /* Gradient background */
-            /*color: #ff7e5f;*/
+            background: linear-gradient(to right, #ff9a9e, #fad0c4) !important; /* Warm gradient background */
             font-family: 'Arial', sans-serif;
             height: 100%;
         }
@@ -127,7 +126,7 @@ elif st.session_state.step == 2:
     st.header("Step 2: Customer Tenure & Spending Details")
 
     # Input fields for customer tenure and spending
-    customer_tenure = st.number_input("Customer Tenure (days)", min_value=0, step=1)
+        customer_tenure = st.number_input("Customer Tenure (days)", min_value=0, step=1)
     spending_features = {
         "MntWines": st.number_input("Amount Spent on Wine (USD)", min_value=0.0, step=100.0),
         "MntFruits": st.number_input("Amount Spent on Fruits (USD)", min_value=0.0, step=100.0),
@@ -186,6 +185,10 @@ elif st.session_state.step == 4:
         label = "High Income, Low Buy"
 
     # Display the prediction result
-    st.write(f"### Predicted Purchases: {predicted_purchases:.2f}")
+    st.write(f"### Predicted Number of Purchases: {predicted_purchases:.2f}")
     st.write(f"### Customer Category: {label}")
-    st.write("Thank you for providing the information! We have classified this customer based on their spending behavior.")
+
+    # Option to reset and start over
+    if st.button("Start Over"):
+        st.session_state.step = 1
+        st.session_state.input_data = {}
