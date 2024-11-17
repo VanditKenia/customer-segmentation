@@ -28,7 +28,7 @@ st.markdown("""
         /* Apply a gradient background to the body */
         body {
             background: linear-gradient(to right, #ff7e5f, #feb47b) !important; /* Gradient background */
-            color: #333;
+            /*color: #ff7e5f;*/
             font-family: 'Arial', sans-serif;
             height: 100%;
         }
@@ -67,7 +67,7 @@ st.markdown("""
             border: 2px solid #fff; /* Add a white border */
             padding: 10px;
             border-radius: 8px;
-            color: #333;
+            color: #ffffff;
             font-size: 1.1rem;
             width: 100%;
             margin-bottom: 15px;
