@@ -139,13 +139,9 @@ if st.session_state.step == 1:
     # Input fields for basic details
     income = st.number_input("Income (in USD)", min_value=0.0, step=1000.0)
     
-    # Static display instead of dropdown input fields
+    # Static display instead of dropdown input fields (no printing)
     education = st.selectbox("Education", ["Graduation", "PhD", "High School", "Masters", "Doctorate"])
     marital_status = st.selectbox("Marital Status", ["Single", "Married", "Divorced", "Widowed"])
-
-    # Display selected values as text (static text instead of dropdown)
-    st.write(f"**Education:** {education}")
-    st.write(f"**Marital Status:** {marital_status}")
 
     # "Next" button
     if st.button("Next: Customer Tenure & Spending Details"):
