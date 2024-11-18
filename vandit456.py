@@ -81,10 +81,10 @@ st.markdown("""
             color: #333 !important;  /* Dark labels */
         }
 
-        /* Dropdown styling */
+        /* Remove the border and background of dropdown inputs (select fields) */
         .stSelectbox select {
-            background-color: #ffffff !important;  /* White background */
-            border: 2px solid #000000 !important;  /* Black border */
+            background-color: transparent !important;  /* Transparent background */
+            border: none !important;  /* No border */
             color: #333 !important;  /* Dark text */
             font-size: 1.2rem !important;
             width: 100% !important;
@@ -92,7 +92,6 @@ st.markdown("""
             border-radius: 8px !important;
             margin-bottom: 20px !important;
             box-sizing: border-box !important;
-            appearance: none;  /* Remove default dropdown arrow */
         }
 
         /* Button styling */
@@ -138,13 +137,8 @@ if st.session_state.step == 1:
 
     # Input fields for basic details
     income = st.number_input("Income (in USD)", min_value=0.0, step=1000.0)
-    
-    # Removed the dropdown input fields, now we show static text (No selectboxes)
-    education = "Graduation"  # Example of static text for education (replace with real value if needed)
-    marital_status = "Single"  # Example of static text for marital status (replace with real value if needed)
-    
-    st.write(f"### Education: {education}")
-    st.write(f"### Marital Status: {marital_status}")
+    education = st.selectbox("Education", ["Graduation", "PhD", "High School", "Masters", "Doctorate"])
+    marital_status = st.selectbox("Marital Status", ["Single", "Married", "Divorced", "Widowed"])
 
     # "Next" button
     if st.button("Next: Customer Tenure & Spending Details"):
