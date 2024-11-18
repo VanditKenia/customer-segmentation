@@ -22,10 +22,10 @@ except Exception as e:
 # Apply custom CSS for styling
 st.markdown("""
     <style>
-        /* Full-screen gradient background */
+        /* Full-screen white background */
         html, body, .block-container {
             height: 100%;
-            background: linear-gradient(to right, #ff7e5f, #feb47b) !important;
+            background-color: #ffffff !important;  /* White background */
             margin: 0;
             padding: 0;
             display: flex;
@@ -49,52 +49,51 @@ st.markdown("""
         }
 
         h1, h2 {
-            color: #ffffff !important;
+            color: #333 !important;  /* Dark text for the heading */
         }
 
-        /* Input fields with white background */
+        /* Input fields with white background and black border */
         input, select, textarea {
-            background-color: #ffffff !important; /* White background */
-            border: none !important; /* Remove border */
-            box-shadow: none !important; /* Remove shadow */
-            color: #333 !important; /* Dark text for readability */
+            background-color: #ffffff !important;  /* White background */
+            border: 2px solid #000000 !important;  /* Black border */
+            color: #333 !important;  /* Dark text for readability */
             padding: 12px !important;
             border-radius: 8px !important;
             font-size: 1.2rem !important;
-            width: 100% !important; /* Full-width input fields */
-            margin-bottom: 20px !important; /* Space between input fields */
+            width: 100% !important;  /* Full-width input fields */
+            margin-bottom: 20px !important;  /* Space between input fields */
             box-sizing: border-box !important;
             display: inline-block;
-            transition: all 0.3s ease !important; /* Smooth transition for all properties */
+            transition: all 0.3s ease !important;  /* Smooth transition for all properties */
         }
 
         input:focus, select:focus, textarea:focus {
             outline: none !important;
-            border-color: transparent !important; /* Remove focus border */
-            background-color: #fff8e1 !important; /* Slight background change on focus */
+            border-color: #feb47b !important;  /* Focus border color */
+            background-color: #fff8e1 !important;  /* Slight background change on focus */
         }
 
         /* Make input field labels bigger and bolder */
         .stTextInput label, .stNumberInput label, .stSelectbox label, .stRadio label {
-            font-size: 1.3rem !important; /* Larger font for labels */
+            font-size: 1.3rem !important;  /* Larger font for labels */
             font-weight: bold !important;
-            color: #ffffff !important; /* White labels */
+            color: #333 !important;  /* Dark labels */
         }
 
         /* Button styling */
         .stButton > button {
-            background-color: #ff7e5f !important; /* Slightly darker shade of background */
+            background-color: #ff7e5f !important;  /* Button background */
             color: white !important;
             font-size: 16px !important;
             border-radius: 8px !important;
             padding: 10px 20px;
             border: none;
             cursor: pointer;
-            transition: background-color 0.3s ease !important; /* Smooth transition */
+            transition: background-color 0.3s ease !important;  /* Smooth transition */
         }
 
         .stButton > button:hover {
-            background-color: #e96b56 !important; /* Darker shade on hover */
+            background-color: #e96b56 !important;  /* Darker shade on hover */
         }
 
         /* Form element spacing */
