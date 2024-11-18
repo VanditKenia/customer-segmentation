@@ -123,7 +123,8 @@ st.markdown("""
         }
 
     </style>
-""", unsafe_allow_html=True
+""", unsafe_allow_html=True)
+
 # Initialize session state if not already set
 if 'step' not in st.session_state:
     st.session_state.step = 1
