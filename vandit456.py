@@ -52,10 +52,10 @@ st.markdown("""
             color: #333 !important;  /* Dark text for the heading */
         }
 
-        /* Input fields with a clean, no-border look */
+        /* Input fields with blended background */
         input, select, textarea {
-            background-color: #ffffff !important;  /* White background */
-            border: none !important;  /* Remove border */
+            background: linear-gradient(to right, #f8f8f8, #e0e0e0) !important;  /* Blended gradient */
+            border: 1px solid #d3d3d3 !important;  /* Subtle border */
             color: #333 !important;  /* Dark text for readability */
             padding: 12px !important;
             border-radius: 8px !important;
@@ -67,23 +67,11 @@ st.markdown("""
             transition: all 0.3s ease !important;  /* Smooth transition for all properties */
         }
 
-        /* Focus effect */
+        /* Focus effect with stronger blending */
         input:focus, select:focus, textarea:focus {
-            outline: none !important;  /* Remove outline */
-            background-color: #fff8e1 !important;  /* Slight background change on focus */
-        }
-
-        /* Dropdown fields */
-        .stSelectbox select {
-            background-color: transparent !important;  /* Transparent background */
-            border: none !important;  /* Remove border */
-            color: #333 !important;  /* Dark text */
-            font-size: 1.2rem !important;
-            width: 100% !important;
-            padding: 12px !important;
-            border-radius: 8px !important;
-            margin-bottom: 20px !important;
-            box-sizing: border-box !important;
+            outline: none !important;
+            border-color: #feb47b !important;  /* Focus border color */
+            background: linear-gradient(to right, #ffe0cc, #ffd6ba) !important;  /* Slightly darker gradient */
         }
 
         /* Make input field labels bigger and bolder */
@@ -91,6 +79,19 @@ st.markdown("""
             font-size: 1.3rem !important;  /* Larger font for labels */
             font-weight: bold !important;
             color: #333 !important;  /* Dark labels */
+        }
+
+        /* Dropdown fields styled similarly */
+        .stSelectbox select {
+            background: linear-gradient(to right, #f8f8f8, #e0e0e0) !important;  /* Gradient */
+            border: 1px solid #d3d3d3 !important;  /* Subtle border */
+            color: #333 !important;  /* Dark text */
+            font-size: 1.2rem !important;
+            width: 100% !important;
+            padding: 12px !important;
+            border-radius: 8px !important;
+            margin-bottom: 20px !important;
+            box-sizing: border-box !important;
         }
 
         /* Button styling */
@@ -112,12 +113,6 @@ st.markdown("""
         /* Form element spacing */
         .stNumberInput, .stTextInput, .stSelectbox {
             margin-bottom: 20px !important;
-        }
-
-        /* Remove any unwanted block partition or spacing */
-        .block-container {
-            background-color: transparent !important;
-            border-radius: 0px !important;
         }
     </style>
 """, unsafe_allow_html=True)
