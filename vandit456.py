@@ -52,9 +52,9 @@ st.markdown("""
             color: #ffffff !important;
         }
 
-        /* Input fields with plain white background and white border */
+        /* Input fields with white background and light border */
         input, select, textarea {
-            background-color: #ffffff !important; /* Plain white background */
+            background-color: #ffffff !important; /* White background */
             border: 2px solid #d1d1d1 !important; /* Light gray border */
             color: #333 !important; /* Dark text for readability */
             padding: 10px !important;
@@ -87,10 +87,11 @@ st.markdown("""
             padding: 10px 20px;
             border: none;
             cursor: pointer;
+            transition: background-color 0.3s ease !important; /* Smooth transition */
         }
 
         .stButton > button:hover {
-            background-color: #ff7e5f !important; /* Keep the same darker shade on hover */
+            background-color: #e96b56 !important; /* Darker shade on hover */
         }
 
         /* Form element spacing */
