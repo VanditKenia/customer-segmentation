@@ -64,11 +64,13 @@ st.markdown("""
             margin-bottom: 20px !important; /* Space between input fields */
             box-sizing: border-box !important;
             display: inline-block;
+            transition: all 0.3s ease !important; /* Smooth transition for all properties */
         }
 
         input:focus, select:focus, textarea:focus {
             outline: none !important;
             border-color: #feb47b !important; /* Focus border color */
+            background-color: #fff8e1 !important; /* Slight background change on focus */
         }
 
         /* Make input field labels bigger and bolder */
