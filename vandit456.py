@@ -45,6 +45,7 @@ st.markdown("""
             width: 90%;
             text-align: center;
             padding: 20px;
+            background-color: transparent !important;
         }
 
         h1, h2 {
@@ -62,6 +63,7 @@ st.markdown("""
             width: 100% !important; /* Full-width input fields */
             margin-bottom: 20px !important; /* Space between input fields */
             box-sizing: border-box !important;
+            display: inline-block;
         }
 
         input:focus, select:focus, textarea:focus {
@@ -78,7 +80,7 @@ st.markdown("""
 
         /* Button styling */
         .stButton > button {
-            background-color: #feb47b !important;
+            background-color: #ff7e5f !important; /* Slightly darker shade of background */
             color: white !important;
             font-size: 16px !important;
             border-radius: 8px !important;
@@ -88,13 +90,20 @@ st.markdown("""
         }
 
         .stButton > button:hover {
-            background-color: #ff7e5f !important; /* Slightly darker hover effect */
+            background-color: #ff7e5f !important; /* Keep the same darker shade on hover */
         }
 
         /* Form element spacing */
         .stNumberInput, .stTextInput, .stSelectbox {
             margin-bottom: 20px !important;
         }
+
+        /* Remove any unwanted block partition or spacing */
+        .block-container {
+            background-color: transparent !important;
+            border-radius: 0px !important;
+        }
+
     </style>
 """, unsafe_allow_html=True)
 
