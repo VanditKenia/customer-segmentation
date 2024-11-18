@@ -55,7 +55,7 @@ st.markdown("""
         /* Input fields with white background and light border */
         input, select, textarea {
             background-color: #ffffff !important; /* White background */
-            border: 2px solid #d1d1d1 !important; /* Light gray border */
+            border: none !important; /* Remove border */
             color: #333 !important; /* Dark text for readability */
             padding: 12px !important;
             border-radius: 8px !important;
