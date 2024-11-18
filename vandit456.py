@@ -57,9 +57,9 @@ st.markdown("""
             background-color: #ffffff !important; /* White background */
             border: 2px solid #d1d1d1 !important; /* Light gray border */
             color: #333 !important; /* Dark text for readability */
-            padding: 10px !important;
+            padding: 12px !important;
             border-radius: 8px !important;
-            font-size: 1.1rem !important;
+            font-size: 1.2rem !important;
             width: 100% !important; /* Full-width input fields */
             margin-bottom: 20px !important; /* Space between input fields */
             box-sizing: border-box !important;
