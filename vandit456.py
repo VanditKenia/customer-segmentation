@@ -52,10 +52,10 @@ st.markdown("""
             color: #333 !important;  /* Dark text for the heading */
         }
 
-        /* Input fields with white background and black border */
+        /* Input fields with a clean, no-border look */
         input, select, textarea {
             background-color: #ffffff !important;  /* White background */
-            border: 2px solid #000000 !important;  /* Black border */
+            border: none !important;  /* Remove border */
             color: #333 !important;  /* Dark text for readability */
             padding: 12px !important;
             border-radius: 8px !important;
@@ -69,22 +69,14 @@ st.markdown("""
 
         /* Focus effect */
         input:focus, select:focus, textarea:focus {
-            outline: none !important;
-            border-color: #feb47b !important;  /* Focus border color */
+            outline: none !important;  /* Remove outline */
             background-color: #fff8e1 !important;  /* Slight background change on focus */
         }
 
-        /* Make input field labels bigger and bolder */
-        .stTextInput label, .stNumberInput label, .stSelectbox label, .stRadio label {
-            font-size: 1.3rem !important;  /* Larger font for labels */
-            font-weight: bold !important;
-            color: #333 !important;  /* Dark labels */
-        }
-
-        /* Remove the border and background of dropdown inputs (select fields) */
+        /* Dropdown fields */
         .stSelectbox select {
             background-color: transparent !important;  /* Transparent background */
-            border: none !important;  /* No border */
+            border: none !important;  /* Remove border */
             color: #333 !important;  /* Dark text */
             font-size: 1.2rem !important;
             width: 100% !important;
@@ -92,6 +84,13 @@ st.markdown("""
             border-radius: 8px !important;
             margin-bottom: 20px !important;
             box-sizing: border-box !important;
+        }
+
+        /* Make input field labels bigger and bolder */
+        .stTextInput label, .stNumberInput label, .stSelectbox label, .stRadio label {
+            font-size: 1.3rem !important;  /* Larger font for labels */
+            font-weight: bold !important;
+            color: #333 !important;  /* Dark labels */
         }
 
         /* Button styling */
@@ -120,7 +119,6 @@ st.markdown("""
             background-color: transparent !important;
             border-radius: 0px !important;
         }
-
     </style>
 """, unsafe_allow_html=True)
 
@@ -202,4 +200,8 @@ elif st.session_state.step == 4:
         label = "High Income, Low Buy"
 
     st.write(f"### Predicted Number of Purchases: {predicted_purchases:.2f}")
-    st.write(f"### Customer
+    st.write(f"### Customer Category: {label}")
+
+    if st.button("Start Over"):
+        st.session_state.step = 1
+        st.session_state.input_data = {}
