@@ -202,8 +202,4 @@ elif st.session_state.step == 4:
         label = "High Income, Low Buy"
 
     st.write(f"### Predicted Number of Purchases: {predicted_purchases:.2f}")
-    st.write(f"### Customer Category: {label}")
-
-    if st.button("Start Over"):
-        st.session_state.step = 1
-        st.session_state.input_data = {}
+    st.write(f"### Customer
