@@ -60,7 +60,8 @@ st.markdown("""
             border-radius: 8px !important;
             font-size: 1.1rem !important;
             width: 100% !important; /* Full-width input fields */
-            margin-bottom: 20px; /* Space between input fields */
+            margin-bottom: 20px !important; /* Space between input fields */
+            box-sizing: border-box !important;
         }
 
         input:focus, select:focus, textarea:focus {
@@ -85,7 +86,7 @@ st.markdown("""
 
         /* Form element spacing */
         .stNumberInput, .stTextInput, .stSelectbox {
-            margin-bottom: 20px;
+            margin-bottom: 20px !important;
         }
     </style>
 """, unsafe_allow_html=True)
