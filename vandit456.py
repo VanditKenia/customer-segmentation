@@ -51,15 +51,21 @@ st.markdown("""
             color: #ffffff !important;
         }
 
-        /* Input fields with distinct colors */
+        /* Input fields with a subtle blue shade covering the whole input area */
         input, select, textarea {
-            background-color: rgba(0, 102, 204, 0.9) !important; /* Rich blue with transparency */
+            background-color: rgba(0, 102, 204, 0.8) !important; /* Subtle blue with transparency */
             border: 2px solid #ffffff !important;
             color: #ffffff !important; /* White text for contrast */
             padding: 10px !important;
             border-radius: 8px !important;
             font-size: 1.1rem !important;
             width: 100% !important; /* Full-width input fields */
+            margin-bottom: 20px; /* Space between input fields */
+        }
+
+        input:focus, select:focus, textarea:focus {
+            outline: none !important;
+            border-color: #feb47b !important; /* Focus border color */
         }
 
         /* Button styling */
