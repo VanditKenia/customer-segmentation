@@ -81,10 +81,10 @@ st.markdown("""
             color: #333 !important;  /* Dark labels */
         }
 
-        /* Remove the border and background of dropdown inputs (select fields) */
+        /* Dropdown styling */
         .stSelectbox select {
-            background-color: transparent !important;  /* Transparent background */
-            border: none !important;  /* No border */
+            background-color: #ffffff !important;  /* White background */
+            border: 2px solid #000000 !important;  /* Black border */
             color: #333 !important;  /* Dark text */
             font-size: 1.2rem !important;
             width: 100% !important;
@@ -92,6 +92,7 @@ st.markdown("""
             border-radius: 8px !important;
             margin-bottom: 20px !important;
             box-sizing: border-box !important;
+            appearance: none;  /* Remove default dropdown arrow */
         }
 
         /* Button styling */
@@ -122,8 +123,7 @@ st.markdown("""
         }
 
     </style>
-""", unsafe_allow_html=True)
-
+""", unsafe_allow_html=True
 # Initialize session state if not already set
 if 'step' not in st.session_state:
     st.session_state.step = 1
