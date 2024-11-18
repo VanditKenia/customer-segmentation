@@ -52,10 +52,11 @@ st.markdown("""
             color: #ffffff !important;
         }
 
-        /* Input fields with white background and light border */
+        /* Input fields with white background */
         input, select, textarea {
             background-color: #ffffff !important; /* White background */
             border: none !important; /* Remove border */
+            box-shadow: none !important; /* Remove shadow */
             color: #333 !important; /* Dark text for readability */
             padding: 12px !important;
             border-radius: 8px !important;
@@ -69,7 +70,7 @@ st.markdown("""
 
         input:focus, select:focus, textarea:focus {
             outline: none !important;
-            border-color: #feb47b !important; /* Focus border color */
+            border-color: transparent !important; /* Remove focus border */
             background-color: #fff8e1 !important; /* Slight background change on focus */
         }
 
