@@ -7,8 +7,8 @@ from sklearn.preprocessing import StandardScaler
 # Set page configuration
 st.set_page_config(
     page_title="Customer Segmentation",
-    layout="centered",
-    initial_sidebar_state="auto"
+    layout="wide",  # Use the entire width of the screen
+    initial_sidebar_state="collapsed"
 )
 
 # Load the pre-trained model, scaler, and training columns
@@ -19,7 +19,7 @@ try:
 except Exception as e:
     st.error(f"Error loading model or other files: {e}")
 
-# Apply custom CSS for the gradient background and input field styling
+# Apply custom CSS for styling
 st.markdown("""
     <style>
         /* Full-screen gradient background */
@@ -33,7 +33,6 @@ st.markdown("""
             justify-content: center;
             align-items: center;
             color: #333;
-            overflow: hidden; /* Prevent scrolling on smaller screens */
         }
 
         .css-18e3th9, .css-1dp5vir, .stApp {
@@ -43,32 +42,27 @@ st.markdown("""
 
         .block-container {
             flex: 1;
-            width: 100%;
-            max-width: 800px;
+            width: 90%;
             text-align: center;
             padding: 20px;
         }
 
-        h1 {
+        h1, h2 {
             color: #ffffff !important;
-            text-align: center;
-            font-size: 2.5rem;
-            font-weight: bold;
-            padding-bottom: 20px;
         }
 
-        /* Uniformly styled input fields with a colored background */
+        /* Input fields with distinct colors */
         input, select, textarea {
-            background-color: rgba(255, 126, 95, 0.8) !important; /* Warm semi-transparent color */
+            background-color: rgba(0, 102, 204, 0.9) !important; /* Rich blue with transparency */
             border: 2px solid #ffffff !important;
             color: #ffffff !important; /* White text for contrast */
             padding: 10px !important;
             border-radius: 8px !important;
             font-size: 1.1rem !important;
-            width: 100% !important;
+            width: 100% !important; /* Full-width input fields */
         }
 
-        /* Buttons */
+        /* Button styling */
         .stButton > button {
             background-color: #feb47b !important;
             color: white !important;
@@ -83,21 +77,8 @@ st.markdown("""
             background-color: #ff7e5f !important;
         }
 
-        /* Headers */
-        h2 {
-            color: #ffffff !important;
-            font-size: 1.8rem !important;
-            margin-bottom: 20px;
-        }
-
-        /* Radio buttons */
-        .stRadio > label {
-            color: #ffffff !important;
-            font-size: 1.1rem !important;
-        }
-
-        /* Spacing for form elements */
-        .stSelectbox, .stNumberInput, .stTextInput, .stRadio {
+        /* Form element spacing */
+        .stNumberInput, .stTextInput, .stSelectbox {
             margin-bottom: 20px;
         }
     </style>
