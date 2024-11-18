@@ -67,6 +67,7 @@ st.markdown("""
             transition: all 0.3s ease !important;  /* Smooth transition for all properties */
         }
 
+        /* Focus effect */
         input:focus, select:focus, textarea:focus {
             outline: none !important;
             border-color: #feb47b !important;  /* Focus border color */
@@ -78,6 +79,19 @@ st.markdown("""
             font-size: 1.3rem !important;  /* Larger font for labels */
             font-weight: bold !important;
             color: #333 !important;  /* Dark labels */
+        }
+
+        /* Remove the border and background of dropdown inputs (select fields) */
+        .stSelectbox select {
+            background-color: transparent !important;  /* Transparent background */
+            border: none !important;  /* No border */
+            color: #333 !important;  /* Dark text */
+            font-size: 1.2rem !important;
+            width: 100% !important;
+            padding: 12px !important;
+            border-radius: 8px !important;
+            margin-bottom: 20px !important;
+            box-sizing: border-box !important;
         }
 
         /* Button styling */
