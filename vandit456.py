@@ -4,6 +4,14 @@ import numpy as np
 import pandas as pd
 from sklearn.preprocessing import StandardScaler
 
+# Set page configuration to enforce light theme and layout
+st.set_page_config(
+    page_title="Customer Segmentation",
+    layout="centered",
+    initial_sidebar_state="auto",
+    theme="light"
+)
+
 # Load the pre-trained model, scaler, and training columns
 try:
     model = joblib.load('optimized_random_forest_model.pkl')
@@ -15,83 +23,70 @@ except Exception as e:
 # Set up the title of the Streamlit app
 st.title("Customer Segmentation Prediction")
 
-# Custom CSS to style the page with a warm gradient background and transparent input fields
+# Custom CSS for a warm gradient background and styled inputs
 st.markdown("""
     <style>
-        /* Reset body and html margins and paddings */
-        html, body {
-            margin: 0;
-            padding: 0;
-            height: 100%;
+        /* Apply a gradient background to the entire app */
+        body, .block-container {
+            background: linear-gradient(to right, #ff7e5f, #feb47b) !important;
+            color: #333 !important; /* Ensure text is readable */
         }
 
-        /* Apply a warm gradient background to the body */
-        body {
-            background: linear-gradient(to right, #ff9a9e, #fad0c4) !important; /* Warm gradient background */
-            font-family: 'Arial', sans-serif;
-            height: 100%;
+        /* Override Streamlit's theme-specific styles */
+        .css-18e3th9, .css-1dp5vir, .stApp {
+            background-color: transparent !important;
+            color: inherit !important;
         }
+
+        /* Title styling */
         h1 {
-            color: #ffffff;
+            color: #ffffff !important;
             text-align: center;
             font-size: 2.5rem;
             font-weight: bold;
             padding-bottom: 20px;
         }
-        h2 {
-            color: #ffffff;
-            font-size: 1.8rem;
-            margin-bottom: 20px;
+
+        /* Input fields */
+        .stTextInput input, .stNumberInput input, .stSelectbox select {
+            background-color: rgba(255, 255, 255, 0.8); /* Light semi-transparent background */
+            border: 2px solid #ffffff !important;
+            color: #333 !important;
+            padding: 10px;
+            border-radius: 8px;
+            font-size: 1.1rem;
+            width: 100%;
         }
 
-        /* Style the buttons */
+        /* Buttons */
         .stButton > button {
-            background-color: #0066cc;
-            color: white;
-            font-size: 16px;
-            border-radius: 8px;
+            background-color: #feb47b !important;
+            color: white !important;
+            font-size: 16px !important;
+            border-radius: 8px !important;
             padding: 10px 20px;
-            transition: background-color 0.3s ease;
-            width: 100%;
             border: none;
             cursor: pointer;
         }
+
         .stButton > button:hover {
-            background-color: #005bb5;
+            background-color: #ff7e5f !important;
         }
 
-        /* Input Fields */
-        .stTextInput input, .stNumberInput input, .stSelectbox select {
-            background-color: transparent; /* Make input fields transparent */
-            border: 2px solid #fff; /* Add a white border */
-            padding: 10px;
-            border-radius: 8px;
-            color: #ffffff;
-            font-size: 1.1rem;
-            width: 100%;
-            margin-bottom: 15px;
-        }
-        
-        .stTextInput input:focus, .stNumberInput input:focus, .stSelectbox select:focus {
-            outline: none;
-            border-color: #feb47b; /* Focus border color */
+        /* Headers */
+        h2 {
+            color: #ffffff !important;
+            font-size: 1.8rem !important;
+            margin-bottom: 20px;
         }
 
-        /* Labels for input fields */
-        .stTextInput label, .stNumberInput label, .stSelectbox label {
-            font-size: 1.2rem;
-            font-weight: bold;
-            color: #ffffff;
-        }
-
-        /* Styling for radio buttons */
+        /* Radio buttons */
         .stRadio > label {
-            color: #ffffff;
-            font-size: 1.1rem;
-            padding: 5px;
+            color: #ffffff !important;
+            font-size: 1.1rem !important;
         }
 
-        /* Make sure all form elements are properly spaced */
+        /* Spacing for form elements */
         .stSelectbox, .stNumberInput, .stTextInput, .stRadio {
             margin-bottom: 20px;
         }
@@ -105,7 +100,7 @@ if 'step' not in st.session_state:
 if 'input_data' not in st.session_state:
     st.session_state.input_data = {}
 
-# Step 1: Customer Basic Details (Income, Education, Marital Status)
+# Step 1: Customer Basic Details
 if st.session_state.step == 1:
     st.header("Step 1: Customer Basic Details")
 
@@ -133,13 +128,12 @@ elif st.session_state.step == 2:
         "MntMeatProducts": st.number_input("Amount Spent on Meat Products (USD)", min_value=0.0, step=100.0),
     }
 
-    # Collect all data into session_state
-    if st.button("Next: Spending Products"):
+    if st.button("Next: Additional Spending Features"):
         st.session_state.input_data['Customer_Tenure'] = customer_tenure
         st.session_state.input_data.update(spending_features)
         st.session_state.step = 3
 
-# Step 3: Additional Spending Features (Fish, Sweets, Gold)
+# Step 3: Additional Spending Features
 elif st.session_state.step == 3:
     st.header("Step 3: Additional Spending Features")
 
@@ -149,7 +143,6 @@ elif st.session_state.step == 3:
         "MntGoldProds": st.number_input("Amount Spent on Gold Products (USD)", min_value=0.0, step=100.0),
     }
 
-    # Collect data and go to the prediction step
     if st.button("Next: Make Prediction"):
         st.session_state.input_data.update(spending_features)
         st.session_state.step = 4
@@ -158,22 +151,15 @@ elif st.session_state.step == 3:
 elif st.session_state.step == 4:
     st.header("Step 4: Prediction Result")
 
-    # Collect all user inputs into a DataFrame
     input_df = pd.DataFrame([st.session_state.input_data])
-
-    # Encode categorical data (e.g., Education, Marital Status)
     input_encoded = pd.get_dummies(input_df)
     input_encoded = input_encoded.reindex(columns=training_columns, fill_value=0)
 
-    # Scale the input data
     input_prepared = scaler.transform(input_encoded)
-
-    # Predict the purchases using the trained model
     predicted_purchases = model.predict(input_prepared)[0]
 
-    # Define thresholds for categorization
-    income_threshold = 50000  # Example threshold for income
-    purchase_threshold = 10  # Example threshold for purchase amount
+    income_threshold = 50000
+    purchase_threshold = 10
 
     if st.session_state.input_data['Income'] < income_threshold and predicted_purchases > purchase_threshold:
         label = "Low Income, High Buy"
@@ -184,11 +170,9 @@ elif st.session_state.step == 4:
     else:
         label = "High Income, Low Buy"
 
-    # Display the prediction result
     st.write(f"### Predicted Number of Purchases: {predicted_purchases:.2f}")
     st.write(f"### Customer Category: {label}")
 
-    # Option to reset and start over
     if st.button("Start Over"):
         st.session_state.step = 1
         st.session_state.input_data = {}
