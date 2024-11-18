@@ -4,12 +4,11 @@ import numpy as np
 import pandas as pd
 from sklearn.preprocessing import StandardScaler
 
-# Set page configuration to enforce light theme and layout
+# Set page configuration
 st.set_page_config(
     page_title="Customer Segmentation",
     layout="centered",
-    initial_sidebar_state="auto",
-    theme="light"
+    initial_sidebar_state="auto"
 )
 
 # Load the pre-trained model, scaler, and training columns
