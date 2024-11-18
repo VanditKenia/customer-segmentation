@@ -51,11 +51,11 @@ st.markdown("""
             color: #ffffff !important;
         }
 
-        /* Input fields with a subtle blue shade covering the whole input area */
+        /* Input fields with plain white background and white border */
         input, select, textarea {
-            background-color: rgba(0, 102, 204, 0.8) !important; /* Subtle blue with transparency */
-            border: 2px solid #ffffff !important;
-            color: #ffffff !important; /* White text for contrast */
+            background-color: #ffffff !important; /* Plain white background */
+            border: 2px solid #d1d1d1 !important; /* Light gray border */
+            color: #333 !important; /* Dark text for readability */
             padding: 10px !important;
             border-radius: 8px !important;
             font-size: 1.1rem !important;
@@ -67,6 +67,13 @@ st.markdown("""
         input:focus, select:focus, textarea:focus {
             outline: none !important;
             border-color: #feb47b !important; /* Focus border color */
+        }
+
+        /* Make input field labels bigger and bolder */
+        .stTextInput label, .stNumberInput label, .stSelectbox label, .stRadio label {
+            font-size: 1.3rem !important; /* Larger font for labels */
+            font-weight: bold !important;
+            color: #ffffff !important; /* White labels */
         }
 
         /* Button styling */
@@ -81,7 +88,7 @@ st.markdown("""
         }
 
         .stButton > button:hover {
-            background-color: #ff7e5f !important;
+            background-color: #ff7e5f !important; /* Slightly darker hover effect */
         }
 
         /* Form element spacing */
