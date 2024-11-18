@@ -19,25 +19,35 @@ try:
 except Exception as e:
     st.error(f"Error loading model or other files: {e}")
 
-# Set up the title of the Streamlit app
-st.title("Customer Segmentation Prediction")
-
-# Custom CSS for a warm gradient background and styled inputs
+# Apply custom CSS for the gradient background and styled input fields
 st.markdown("""
     <style>
         /* Apply a gradient background to the entire app */
-        body, .block-container {
+        html, body, .block-container {
+            height: 100%;
             background: linear-gradient(to right, #ff7e5f, #feb47b) !important;
-            color: #333 !important; /* Ensure text is readable */
+            margin: 0;
+            padding: 0;
+            display: flex;
+            flex-direction: column;
+            justify-content: center;
+            align-items: center;
+            color: #333;
         }
 
-        /* Override Streamlit's theme-specific styles */
         .css-18e3th9, .css-1dp5vir, .stApp {
             background-color: transparent !important;
             color: inherit !important;
         }
 
-        /* Title styling */
+        .block-container {
+            flex: 1;
+            width: 100%;
+            max-width: 800px;
+            text-align: center;
+            padding: 20px;
+        }
+
         h1 {
             color: #ffffff !important;
             text-align: center;
@@ -47,14 +57,14 @@ st.markdown("""
         }
 
         /* Input fields */
-        .stTextInput input, .stNumberInput input, .stSelectbox select {
-            background-color: rgba(255, 255, 255, 0.8); /* Light semi-transparent background */
+        input, select, textarea {
+            background-color: rgba(255, 255, 255, 0.8) !important; /* Light semi-transparent background */
             border: 2px solid #ffffff !important;
             color: #333 !important;
-            padding: 10px;
-            border-radius: 8px;
-            font-size: 1.1rem;
-            width: 100%;
+            padding: 10px !important;
+            border-radius: 8px !important;
+            font-size: 1.1rem !important;
+            width: 100% !important;
         }
 
         /* Buttons */
