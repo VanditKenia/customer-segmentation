@@ -19,10 +19,10 @@ try:
 except Exception as e:
     st.error(f"Error loading model or other files: {e}")
 
-# Apply custom CSS for the gradient background and styled input fields
+# Apply custom CSS for the gradient background and input field styling
 st.markdown("""
     <style>
-        /* Apply a gradient background to the entire app */
+        /* Full-screen gradient background */
         html, body, .block-container {
             height: 100%;
             background: linear-gradient(to right, #ff7e5f, #feb47b) !important;
@@ -33,6 +33,7 @@ st.markdown("""
             justify-content: center;
             align-items: center;
             color: #333;
+            overflow: hidden; /* Prevent scrolling on smaller screens */
         }
 
         .css-18e3th9, .css-1dp5vir, .stApp {
@@ -56,11 +57,11 @@ st.markdown("""
             padding-bottom: 20px;
         }
 
-        /* Input fields */
+        /* Uniformly styled input fields with a colored background */
         input, select, textarea {
-            background-color: rgba(255, 255, 255, 0.8) !important; /* Light semi-transparent background */
+            background-color: rgba(255, 126, 95, 0.8) !important; /* Warm semi-transparent color */
             border: 2px solid #ffffff !important;
-            color: #333 !important;
+            color: #ffffff !important; /* White text for contrast */
             padding: 10px !important;
             border-radius: 8px !important;
             font-size: 1.1rem !important;
